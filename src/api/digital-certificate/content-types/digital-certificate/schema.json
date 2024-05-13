@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "digital_certificates",
+  "info": {
+    "singularName": "digital-certificate",
+    "pluralName": "digital-certificates",
+    "displayName": "Digital Certificate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "recipientName": {
+      "type": "string"
+    },
+    "courseName": {
+      "type": "string"
+    },
+    "recipientEmail": {
+      "type": "email"
+    },
+    "courseDescription": {
+      "type": "text"
+    },
+    "issueDate": {
+      "type": "date"
+    }
+  }
+}

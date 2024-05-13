@@ -362,6 +362,41 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiDigitalCertificateDigitalCertificate
+  extends Schema.CollectionType {
+  collectionName: 'digital_certificates';
+  info: {
+    singularName: 'digital-certificate';
+    pluralName: 'digital-certificates';
+    displayName: 'Digital Certificate';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    recipientName: Attribute.String;
+    courseName: Attribute.String;
+    recipientEmail: Attribute.Email;
+    courseDescription: Attribute.Text;
+    issueDate: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::digital-certificate.digital-certificate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::digital-certificate.digital-certificate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -798,6 +833,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::digital-certificate.digital-certificate': ApiDigitalCertificateDigitalCertificate;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
